@@ -4,7 +4,7 @@ all: .minttyrc
 .minttyrc: $(wildcard minttyrc.*) mintty-colors-solarized/.minttyrc.dark
 	cat $^ > .minttyrc
 
-mintty-colors-solarized/.minttyrc.dark: FORCE
+mintty-colors-solarized/%: FORCE
 	[ -d mintty-colors-solarized ] \
 		|| git clone https://github.com/mavnn/mintty-colors-solarized.git \
 		&& (cd mintty-colors-solarized && git pull)
