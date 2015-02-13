@@ -6,8 +6,8 @@ all: .minttyrc
 
 mintty-colors-solarized/%: FORCE
 	[ -d mintty-colors-solarized ] \
-		|| git clone https://github.com/mavnn/mintty-colors-solarized.git \
-		&& (cd mintty-colors-solarized && git pull)
+		&& (cd mintty-colors-solarized && git pull) \
+		|| git clone https://github.com/mavnn/mintty-colors-solarized.git
 
 clean:
 	rm -rf .minttyrc mintty-colors-solarized
