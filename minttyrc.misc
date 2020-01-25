@@ -1,11 +1,11 @@
 BoldAsFont=no
-Transparency=low
+Transparency=off
 Font=Consolas
 OpaqueWhenFocused=no
 Locale=C
 Charset=UTF-8
-Columns=120
-Rows=40
+Columns=230
+Rows=70
 FontSmoothing=default
 IMECursorColour=128,224,160
 CursorType=block
