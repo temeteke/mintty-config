@@ -1,21 +1,24 @@
 .PHONY: all clean install uninstall FORCE
-all: .minttyrc
+all: .mintty/themes/base16-solarized-dark.minttyrc
 
-.minttyrc: $(wildcard minttyrc.*) mintty-colors-solarized/.minttyrc.dark
-	cat $^ > .minttyrc
+.mintty/themes/base16-solarized-dark.minttyrc: base16-mintty/mintty/base16-solarized-dark.minttyrc
+	mkdir -p .mintty/themes
+	cp $< .mintty/themes
 
-mintty-colors-solarized/%: FORCE
-	[ -d mintty-colors-solarized ] \
-		&& (cd mintty-colors-solarized && git pull) \
-		|| git clone https://github.com/mavnn/mintty-colors-solarized.git
+base16-mintty/%: FORCE
+	[ -d base16-mintty ] \
+		&& (cd base16-mintty && git pull) \
+		|| git clone https://github.com/iamthad/base16-mintty.git
 
 clean:
-	rm -rf .minttyrc mintty-colors-solarized
+	rm -rf .mintty base16-mintty
 
 install: .minttyrc
 	cp .minttyrc ~/.minttyrc
-		
+	cp -r .mintty ~/
+
 uninstall:
 	rm ~/.minttyrc
+	cp -r ~/.mintty
 
 FORCE:

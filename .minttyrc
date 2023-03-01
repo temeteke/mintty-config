@@ -9,3 +9,4 @@ Rows=65
 FontSmoothing=default
 IMECursorColour=128,224,160
 CursorType=block
+ThemeFile=base16-solarized-dark.minttyrc
